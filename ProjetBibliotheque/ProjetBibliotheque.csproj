@@ -82,6 +82,12 @@
     <Compile Include="FormGenre.designer.cs">
       <DependentUpon>FormGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLivre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLivre.designer.cs">
+      <DependentUpon>FormLivre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdherent.resx">
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGenre.resx">
       <DependentUpon>FormGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLivre.resx">
+      <DependentUpon>FormLivre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
