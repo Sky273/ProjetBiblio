@@ -39,7 +39,7 @@
             // 
             // buttonEnregistrer
             // 
-            this.buttonEnregistrer.Location = new System.Drawing.Point(141, 99);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(142, 89);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.buttonEnregistrer.TabIndex = 0;
@@ -50,7 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 19);
+            this.label1.Location = new System.Drawing.Point(12, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(116, 12);
+            this.textBoxNom.Location = new System.Drawing.Point(117, 28);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(100, 20);
             this.textBoxNom.TabIndex = 2;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 45);
+            this.label2.Location = new System.Drawing.Point(12, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(116, 38);
+            this.textBoxPrenom.Location = new System.Drawing.Point(117, 54);
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrenom.TabIndex = 4;
@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 71);
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 5;
@@ -90,7 +90,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(116, 64);
+            this.textBoxId.Location = new System.Drawing.Point(117, 2);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 20);
             this.textBoxId.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 135);
+            this.ClientSize = new System.Drawing.Size(229, 124);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxPrenom);
