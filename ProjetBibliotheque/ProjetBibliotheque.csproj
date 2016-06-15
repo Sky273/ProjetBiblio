@@ -64,6 +64,12 @@
     <Compile Include="FormBibliothecaire.designer.cs">
       <DependentUpon>FormBibliothecaire.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEmplacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEmplacement.designer.cs">
+      <DependentUpon>FormEmplacement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAdherent.resx">
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBibliothecaire.resx">
       <DependentUpon>FormBibliothecaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEmplacement.resx">
+      <DependentUpon>FormEmplacement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
