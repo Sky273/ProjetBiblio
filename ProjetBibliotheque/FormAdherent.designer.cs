@@ -199,7 +199,7 @@
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.buttonEnregistrer.TabIndex = 19;
-            this.buttonEnregistrer.Text = "enregistrer";
+            this.buttonEnregistrer.Text = "Enregistrer";
             this.buttonEnregistrer.UseVisualStyleBackColor = true;
             this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
             // 
