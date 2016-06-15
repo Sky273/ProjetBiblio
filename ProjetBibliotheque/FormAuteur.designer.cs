@@ -39,7 +39,7 @@
             // 
             // buttonEnregistrer
             // 
-            this.buttonEnregistrer.Location = new System.Drawing.Point(142, 89);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(106, 80);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.buttonEnregistrer.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(117, 28);
+            this.textBoxNom.Location = new System.Drawing.Point(81, 28);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(100, 20);
             this.textBoxNom.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             // textBoxPrenom
             // 
-            this.textBoxPrenom.Location = new System.Drawing.Point(117, 54);
+            this.textBoxPrenom.Location = new System.Drawing.Point(81, 54);
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrenom.TabIndex = 4;
@@ -84,13 +84,13 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.Size = new System.Drawing.Size(18, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Id de l\'auteur";
+            this.label3.Text = "ID";
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(117, 2);
+            this.textBoxId.Location = new System.Drawing.Point(81, 2);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 20);
             this.textBoxId.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 124);
+            this.ClientSize = new System.Drawing.Size(186, 109);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxPrenom);

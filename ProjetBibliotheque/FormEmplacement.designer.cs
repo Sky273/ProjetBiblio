@@ -37,7 +37,7 @@
             // 
             // buttonEnregistrer
             // 
-            this.buttonEnregistrer.Location = new System.Drawing.Point(159, 64);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(128, 64);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.buttonEnregistrer.TabIndex = 0;
@@ -59,20 +59,20 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "ID de l\'emplacement";
+            this.label2.Text = "ID";
             // 
             // textBoxEmplacement
             // 
-            this.textBoxEmplacement.Location = new System.Drawing.Point(134, 38);
+            this.textBoxEmplacement.Location = new System.Drawing.Point(103, 38);
             this.textBoxEmplacement.Name = "textBoxEmplacement";
             this.textBoxEmplacement.Size = new System.Drawing.Size(100, 20);
             this.textBoxEmplacement.TabIndex = 3;
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(134, 12);
+            this.textBoxId.Location = new System.Drawing.Point(103, 12);
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(100, 20);
             this.textBoxId.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(240, 90);
+            this.ClientSize = new System.Drawing.Size(208, 90);
             this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.textBoxEmplacement);
             this.Controls.Add(this.label2);

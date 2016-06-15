@@ -100,7 +100,6 @@
             this.domainUpDownLivre.Name = "domainUpDownLivre";
             this.domainUpDownLivre.Size = new System.Drawing.Size(159, 20);
             this.domainUpDownLivre.TabIndex = 10;
-            this.domainUpDownLivre.Text = "livre";
             // 
             // domainUpDownAdherent
             // 
@@ -108,7 +107,6 @@
             this.domainUpDownAdherent.Name = "domainUpDownAdherent";
             this.domainUpDownAdherent.Size = new System.Drawing.Size(160, 20);
             this.domainUpDownAdherent.TabIndex = 11;
-            this.domainUpDownAdherent.Text = "adherent";
             // 
             // textBoxId
             // 
