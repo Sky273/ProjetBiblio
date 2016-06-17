@@ -11,17 +11,12 @@ namespace ProjetBibliotheque
 {
     using System;
     
-    public partial class ReadAdherents_Result
+    public partial class ReadEmprunts_Result
     {
-        public int adherent_ID { get; set; }
         public string adherent_nom { get; set; }
         public string adherent_prenom { get; set; }
-        public Nullable<System.DateTime> adherent_date_naissance { get; set; }
-        public string adherent_adresse { get; set; }
-        public Nullable<int> adherent_code_postal { get; set; }
-        public string adherent_ville { get; set; }
-        public string adherent_telephone { get; set; }
-        public string adherent_email { get; set; }
-        public Nullable<System.DateTime> adherent_date_inscription { get; set; }
+        public string livre_titre { get; set; }
+        public Nullable<System.DateTime> date_emprunt { get; set; }
+        public Nullable<System.DateTime> date_retour { get; set; }
     }
 }

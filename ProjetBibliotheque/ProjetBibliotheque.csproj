@@ -155,6 +155,24 @@
     <Compile Include="ReadAdherents_Result.cs">
       <DependentUpon>ModelBiblio.tt</DependentUpon>
     </Compile>
+    <Compile Include="ReadAuteurs_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadBibliothecaires_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadEmplacements_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadEmprunts_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadGenres_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReadLivres_Result.cs">
+      <DependentUpon>ModelBiblio.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormAdherent.resx">
       <DependentUpon>FormAdherent.cs</DependentUpon>
     </EmbeddedResource>

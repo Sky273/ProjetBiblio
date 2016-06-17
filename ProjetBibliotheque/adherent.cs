@@ -26,7 +26,8 @@ namespace ProjetBibliotheque
         public Nullable<System.DateTime> adherent_date_naissance { get; set; }
         public string adherent_adresse { get; set; }
         public Nullable<int> adherent_code_postal { get; set; }
-        public Nullable<int> adherent_telephone { get; set; }
+        public string adherent_ville { get; set; }
+        public string adherent_telephone { get; set; }
         public string adherent_email { get; set; }
         public Nullable<System.DateTime> adherent_date_inscription { get; set; }
     

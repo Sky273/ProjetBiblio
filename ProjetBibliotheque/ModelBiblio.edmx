@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BiblioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BibliothequeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="adherent">
           <Key>
             <PropertyRef Name="adherent_ID" />
@@ -13,9 +13,10 @@
           <Property Name="adherent_nom" Type="varchar" MaxLength="25" />
           <Property Name="adherent_prenom" Type="varchar" MaxLength="25" />
           <Property Name="adherent_date_naissance" Type="date" />
-          <Property Name="adherent_adresse" Type="varchar" MaxLength="25" />
+          <Property Name="adherent_adresse" Type="varchar" MaxLength="50" />
           <Property Name="adherent_code_postal" Type="int" />
-          <Property Name="adherent_telephone" Type="int" />
+          <Property Name="adherent_ville" Type="varchar" MaxLength="25" />
+          <Property Name="adherent_telephone" Type="varchar" MaxLength="14" />
           <Property Name="adherent_email" Type="varchar" MaxLength="25" />
           <Property Name="adherent_date_inscription" Type="date" />
         </EntityType>
@@ -172,7 +173,13 @@
           <Parameter Name="emplacementId" Type="int" Mode="In" />
         </Function>
         <Function Name="ReadAdherents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="BiblioModelStoreContainer">
+        <Function Name="ReadAuteurs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadBibliothecaires" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadEmplacements" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadEmprunts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadGenres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ReadLivres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BibliothequeModelStoreContainer">
           <EntitySet Name="adherent" EntityType="Self.adherent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="auteur" EntityType="Self.auteur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bibliothecaire" EntityType="Self.bibliothecaire" Schema="dbo" store:Type="Tables" />
@@ -201,11 +208,10 @@
             <End Role="livre" EntitySet="livre" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BiblioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BibliothequeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="adherent">
           <Key>
             <PropertyRef Name="adherent_ID" />
@@ -214,9 +220,10 @@
           <Property Name="adherent_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_date_naissance" Type="DateTime" Precision="0" />
-          <Property Name="adherent_adresse" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="adherent_adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="adherent_code_postal" Type="Int32" />
-          <Property Name="adherent_telephone" Type="Int32" />
+          <Property Name="adherent_ville" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="adherent_telephone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="adherent_email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_date_inscription" Type="DateTime" Precision="0" />
           <NavigationProperty Name="emprunters" Relationship="Self.FK_emprunter_adherent_ID" FromRole="adherent" ToRole="emprunter" />
@@ -392,7 +399,7 @@
             <Parameter Name="prenom" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateEmplacement">
-            <Parameter Name="libelle" Mode="In" Type="String" />
+          <Parameter Name="libelle" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateEmprunt">
             <Parameter Name="livreId" Mode="In" Type="Int32" />
@@ -401,7 +408,7 @@
             <Parameter Name="dateRetour" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CreateGenre">
-            <Parameter Name="libelle" Mode="In" Type="String" />
+          <Parameter Name="libelle" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateLivre">
             <Parameter Name="titre" Mode="In" Type="String" />
@@ -410,27 +417,68 @@
             <Parameter Name="auteurId" Mode="In" Type="Int32" />
             <Parameter Name="emplacementId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="ReadAdherents" ReturnType="Collection(BiblioModel.ReadAdherents_Result)" />
+          <FunctionImport Name="ReadAdherents" ReturnType="Collection(BibliothequeModel.ReadAdherents_Result)" />
+          <FunctionImport Name="ReadAuteurs" ReturnType="Collection(BibliothequeModel.ReadAuteurs_Result)" />
+          <FunctionImport Name="ReadBibliothecaires" ReturnType="Collection(BibliothequeModel.ReadBibliothecaires_Result)" />
+          <FunctionImport Name="ReadEmplacements" ReturnType="Collection(BibliothequeModel.ReadEmplacements_Result)" />
+          <FunctionImport Name="ReadEmprunts" ReturnType="Collection(BibliothequeModel.ReadEmprunts_Result)" />
+          <FunctionImport Name="ReadGenres" ReturnType="Collection(BibliothequeModel.ReadGenres_Result)" />
+          <FunctionImport Name="ReadLivres" ReturnType="Collection(BibliothequeModel.ReadLivres_Result)" />
         </EntityContainer>
         <ComplexType Name="ReadAdherents_Result">
           <Property Type="Int32" Name="adherent_ID" Nullable="false" />
           <Property Type="String" Name="adherent_nom" Nullable="true" MaxLength="25" />
           <Property Type="String" Name="adherent_prenom" Nullable="true" MaxLength="25" />
           <Property Type="DateTime" Name="adherent_date_naissance" Nullable="true" />
-          <Property Type="String" Name="adherent_adresse" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="adherent_adresse" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="adherent_code_postal" Nullable="true" />
-          <Property Type="Int32" Name="adherent_telephone" Nullable="true" />
+          <Property Type="String" Name="adherent_ville" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="adherent_telephone" Nullable="true" MaxLength="14" />
           <Property Type="String" Name="adherent_email" Nullable="true" MaxLength="25" />
           <Property Type="DateTime" Name="adherent_date_inscription" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadAuteurs_Result">
+          <Property Type="Int32" Name="auteur_ID" Nullable="false" />
+          <Property Type="String" Name="auteur_nom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="auteur_prenom" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="ReadBibliothecaires_Result">
+          <Property Type="Int32" Name="bibliothecaire_ID" Nullable="false" />
+          <Property Type="String" Name="bibliothecaire_nom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="bibliothecaire_prenom" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="ReadEmplacements_Result">
+          <Property Type="Int32" Name="emplacement_ID" Nullable="false" />
+          <Property Type="String" Name="emplacement_libelle" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="ReadEmprunts_Result">
+          <Property Type="String" Name="adherent_nom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="adherent_prenom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="livre_titre" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="date_emprunt" Nullable="true" />
+          <Property Type="DateTime" Name="date_retour" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ReadGenres_Result">
+          <Property Type="Int32" Name="genre_ID" Nullable="false" />
+          <Property Type="String" Name="genre_libelle" Nullable="true" MaxLength="25" />
+        </ComplexType>
+        <ComplexType Name="ReadLivres_Result">
+          <Property Type="Int32" Name="livre_ID" Nullable="false" />
+          <Property Type="String" Name="livre_titre" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="livre_annee_parution" Nullable="true" />
+          <Property Type="String" Name="genre_libelle" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="auteur_nom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="auteur_prenom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="emplacement_libelle" Nullable="true" MaxLength="25" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BiblioModelStoreContainer" CdmEntityContainer="BiblioEntities">
+        <EntityContainerMapping StorageEntityContainer="BibliothequeModelStoreContainer" CdmEntityContainer="BiblioEntities">
           <EntitySetMapping Name="adherents">
-            <EntityTypeMapping TypeName="BiblioModel.adherent">
+            <EntityTypeMapping TypeName="BibliothequeModel.adherent">
               <MappingFragment StoreEntitySet="adherent">
                 <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
                 <ScalarProperty Name="adherent_nom" ColumnName="adherent_nom" />
@@ -438,6 +486,7 @@
                 <ScalarProperty Name="adherent_date_naissance" ColumnName="adherent_date_naissance" />
                 <ScalarProperty Name="adherent_adresse" ColumnName="adherent_adresse" />
                 <ScalarProperty Name="adherent_code_postal" ColumnName="adherent_code_postal" />
+                <ScalarProperty Name="adherent_ville" ColumnName="adherent_ville" />
                 <ScalarProperty Name="adherent_telephone" ColumnName="adherent_telephone" />
                 <ScalarProperty Name="adherent_email" ColumnName="adherent_email" />
                 <ScalarProperty Name="adherent_date_inscription" ColumnName="adherent_date_inscription" />
@@ -445,7 +494,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="auteurs">
-            <EntityTypeMapping TypeName="BiblioModel.auteur">
+            <EntityTypeMapping TypeName="BibliothequeModel.auteur">
               <MappingFragment StoreEntitySet="auteur">
                 <ScalarProperty Name="auteur_ID" ColumnName="auteur_ID" />
                 <ScalarProperty Name="auteur_nom" ColumnName="auteur_nom" />
@@ -454,7 +503,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bibliothecaires">
-            <EntityTypeMapping TypeName="BiblioModel.bibliothecaire">
+            <EntityTypeMapping TypeName="BibliothequeModel.bibliothecaire">
               <MappingFragment StoreEntitySet="bibliothecaire">
                 <ScalarProperty Name="bibliothecaire_ID" ColumnName="bibliothecaire_ID" />
                 <ScalarProperty Name="bibliothecaire_login" ColumnName="bibliothecaire_login" />
@@ -465,7 +514,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="emplacements">
-            <EntityTypeMapping TypeName="BiblioModel.emplacement">
+            <EntityTypeMapping TypeName="BibliothequeModel.emplacement">
               <MappingFragment StoreEntitySet="emplacement">
                 <ScalarProperty Name="emplacement_ID" ColumnName="emplacement_ID" />
                 <ScalarProperty Name="emplacement_libelle" ColumnName="emplacement_libelle" />
@@ -473,7 +522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="emprunters">
-            <EntityTypeMapping TypeName="BiblioModel.emprunter">
+            <EntityTypeMapping TypeName="BibliothequeModel.emprunter">
               <MappingFragment StoreEntitySet="emprunter">
                 <ScalarProperty Name="livre_ID" ColumnName="livre_ID" />
                 <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
@@ -483,7 +532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="genres">
-            <EntityTypeMapping TypeName="BiblioModel.genre">
+            <EntityTypeMapping TypeName="BibliothequeModel.genre">
               <MappingFragment StoreEntitySet="genre">
                 <ScalarProperty Name="genre_ID" ColumnName="genre_ID" />
                 <ScalarProperty Name="genre_libelle" ColumnName="genre_libelle" />
@@ -491,7 +540,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="livres">
-            <EntityTypeMapping TypeName="BiblioModel.livre">
+            <EntityTypeMapping TypeName="BibliothequeModel.livre">
               <MappingFragment StoreEntitySet="livre">
                 <ScalarProperty Name="livre_ID" ColumnName="livre_ID" />
                 <ScalarProperty Name="livre_titre" ColumnName="livre_titre" />
@@ -502,25 +551,84 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateAdherent" FunctionName="BiblioModel.Store.CreateAdherent" />
-          <FunctionImportMapping FunctionImportName="CreateAuteur" FunctionName="BiblioModel.Store.CreateAuteur" />
-          <FunctionImportMapping FunctionImportName="CreateBibliothecaire" FunctionName="BiblioModel.Store.CreateBibliothecaire" />
-          <FunctionImportMapping FunctionImportName="CreateEmplacement" FunctionName="BiblioModel.Store.CreateEmplacement" />
-          <FunctionImportMapping FunctionImportName="CreateEmprunt" FunctionName="BiblioModel.Store.CreateEmprunt" />
-          <FunctionImportMapping FunctionImportName="CreateGenre" FunctionName="BiblioModel.Store.CreateGenre" />
-          <FunctionImportMapping FunctionImportName="CreateLivre" FunctionName="BiblioModel.Store.CreateLivre" />
-          <FunctionImportMapping FunctionImportName="ReadAdherents" FunctionName="BiblioModel.Store.ReadAdherents">
+          <FunctionImportMapping FunctionImportName="CreateAdherent" FunctionName="BibliothequeModel.Store.CreateAdherent" />
+          <FunctionImportMapping FunctionImportName="CreateAuteur" FunctionName="BibliothequeModel.Store.CreateAuteur" />
+          <FunctionImportMapping FunctionImportName="CreateBibliothecaire" FunctionName="BibliothequeModel.Store.CreateBibliothecaire" />
+          <FunctionImportMapping FunctionImportName="CreateEmplacement" FunctionName="BibliothequeModel.Store.CreateEmplacement" />
+          <FunctionImportMapping FunctionImportName="CreateEmprunt" FunctionName="BibliothequeModel.Store.CreateEmprunt" />
+          <FunctionImportMapping FunctionImportName="CreateGenre" FunctionName="BibliothequeModel.Store.CreateGenre" />
+          <FunctionImportMapping FunctionImportName="CreateLivre" FunctionName="BibliothequeModel.Store.CreateLivre" />
+          <FunctionImportMapping FunctionImportName="ReadAdherents" FunctionName="BibliothequeModel.Store.ReadAdherents">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="BiblioModel.ReadAdherents_Result">
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadAdherents_Result">
                 <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
                 <ScalarProperty Name="adherent_nom" ColumnName="adherent_nom" />
                 <ScalarProperty Name="adherent_prenom" ColumnName="adherent_prenom" />
                 <ScalarProperty Name="adherent_date_naissance" ColumnName="adherent_date_naissance" />
                 <ScalarProperty Name="adherent_adresse" ColumnName="adherent_adresse" />
                 <ScalarProperty Name="adherent_code_postal" ColumnName="adherent_code_postal" />
+                <ScalarProperty Name="adherent_ville" ColumnName="adherent_ville" />
                 <ScalarProperty Name="adherent_telephone" ColumnName="adherent_telephone" />
                 <ScalarProperty Name="adherent_email" ColumnName="adherent_email" />
                 <ScalarProperty Name="adherent_date_inscription" ColumnName="adherent_date_inscription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadAuteurs" FunctionName="BibliothequeModel.Store.ReadAuteurs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadAuteurs_Result">
+                <ScalarProperty Name="auteur_ID" ColumnName="auteur_ID" />
+                <ScalarProperty Name="auteur_nom" ColumnName="auteur_nom" />
+                <ScalarProperty Name="auteur_prenom" ColumnName="auteur_prenom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadBibliothecaires" FunctionName="BibliothequeModel.Store.ReadBibliothecaires">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadBibliothecaires_Result">
+                <ScalarProperty Name="bibliothecaire_ID" ColumnName="bibliothecaire_ID" />
+                <ScalarProperty Name="bibliothecaire_nom" ColumnName="bibliothecaire_nom" />
+                <ScalarProperty Name="bibliothecaire_prenom" ColumnName="bibliothecaire_prenom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadEmplacements" FunctionName="BibliothequeModel.Store.ReadEmplacements">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadEmplacements_Result">
+                <ScalarProperty Name="emplacement_ID" ColumnName="emplacement_ID" />
+                <ScalarProperty Name="emplacement_libelle" ColumnName="emplacement_libelle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadEmprunts" FunctionName="BibliothequeModel.Store.ReadEmprunts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadEmprunts_Result">
+                <ScalarProperty Name="adherent_nom" ColumnName="adherent_nom" />
+                <ScalarProperty Name="adherent_prenom" ColumnName="adherent_prenom" />
+                <ScalarProperty Name="livre_titre" ColumnName="livre_titre" />
+                <ScalarProperty Name="date_emprunt" ColumnName="date_emprunt" />
+                <ScalarProperty Name="date_retour" ColumnName="date_retour" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadGenres" FunctionName="BibliothequeModel.Store.ReadGenres">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadGenres_Result">
+                <ScalarProperty Name="genre_ID" ColumnName="genre_ID" />
+                <ScalarProperty Name="genre_libelle" ColumnName="genre_libelle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ReadLivres" FunctionName="BibliothequeModel.Store.ReadLivres">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BibliothequeModel.ReadLivres_Result">
+                <ScalarProperty Name="livre_ID" ColumnName="livre_ID" />
+                <ScalarProperty Name="livre_titre" ColumnName="livre_titre" />
+                <ScalarProperty Name="livre_annee_parution" ColumnName="livre_annee_parution" />
+                <ScalarProperty Name="genre_libelle" ColumnName="genre_libelle" />
+                <ScalarProperty Name="auteur_nom" ColumnName="auteur_nom" />
+                <ScalarProperty Name="auteur_prenom" ColumnName="auteur_prenom" />
+                <ScalarProperty Name="emplacement_libelle" ColumnName="emplacement_libelle" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

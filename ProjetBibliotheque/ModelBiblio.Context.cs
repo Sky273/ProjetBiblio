@@ -174,5 +174,35 @@ namespace ProjetBibliotheque
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadAdherents_Result>("ReadAdherents");
         }
+    
+        public virtual ObjectResult<ReadAuteurs_Result> ReadAuteurs()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadAuteurs_Result>("ReadAuteurs");
+        }
+    
+        public virtual ObjectResult<ReadBibliothecaires_Result> ReadBibliothecaires()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadBibliothecaires_Result>("ReadBibliothecaires");
+        }
+    
+        public virtual ObjectResult<ReadEmplacements_Result> ReadEmplacements()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadEmplacements_Result>("ReadEmplacements");
+        }
+    
+        public virtual ObjectResult<ReadEmprunts_Result> ReadEmprunts()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadEmprunts_Result>("ReadEmprunts");
+        }
+    
+        public virtual ObjectResult<ReadGenres_Result> ReadGenres()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadGenres_Result>("ReadGenres");
+        }
+    
+        public virtual ObjectResult<ReadLivres_Result> ReadLivres()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadLivres_Result>("ReadLivres");
+        }
     }
 }
