@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +48,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adherent.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="auteur.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bibliothecaire.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="emplacement.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="emprunter.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormAdherent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +105,32 @@
     <Compile Include="FormLivre.designer.cs">
       <DependentUpon>FormLivre.cs</DependentUpon>
     </Compile>
+    <Compile Include="genre.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
     <Compile Include="Identification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Identification.Designer.cs">
       <DependentUpon>Identification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="livre.cs">
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBibliotheque.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBibliotheque.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBibliotheque.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBibliotheque.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBibliotheque.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBibliotheque.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +167,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="ModelBibliotheque.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBibliotheque.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBibliotheque.edmx.diagram">
+      <DependentUpon>ModelBibliotheque.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -141,6 +186,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelBibliotheque.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBibliotheque.edmx</DependentUpon>
+      <LastGenOutput>ModelBibliotheque.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBibliotheque.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBibliotheque.edmx</DependentUpon>
+      <LastGenOutput>ModelBibliotheque.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

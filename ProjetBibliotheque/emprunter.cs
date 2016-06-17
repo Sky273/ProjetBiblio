@@ -14,10 +14,10 @@ namespace ProjetBibliotheque
     
     public partial class emprunter
     {
-        public Nullable<System.DateTime> date_emprunt { get; set; }
-        public Nullable<System.DateTime> date_retour { get; set; }
         public int livre_ID { get; set; }
         public int adherent_ID { get; set; }
+        public Nullable<System.DateTime> date_emprunt { get; set; }
+        public Nullable<System.DateTime> date_retour { get; set; }
     
         public virtual adherent adherent { get; set; }
         public virtual livre livre { get; set; }
