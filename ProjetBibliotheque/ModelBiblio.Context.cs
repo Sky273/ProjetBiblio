@@ -12,11 +12,13 @@ namespace ProjetBibliotheque
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
-    public partial class BibliothequeEntities : DbContext
+    public partial class BiblioEntities : DbContext
     {
-        public BibliothequeEntities()
-            : base("name=BibliothequeEntities")
+        public BiblioEntities()
+            : base("name=BiblioEntities")
         {
         }
     
@@ -32,5 +34,145 @@ namespace ProjetBibliotheque
         public virtual DbSet<emprunter> emprunters { get; set; }
         public virtual DbSet<genre> genres { get; set; }
         public virtual DbSet<livre> livres { get; set; }
+    
+        public virtual int CreateAdherent(string nom, string prenom, Nullable<System.DateTime> dateNaissance, string adresse, Nullable<int> codePostal, Nullable<int> telephone, string email, Nullable<System.DateTime> dateInscription)
+        {
+            var nomParameter = nom != null ?
+                new ObjectParameter("nom", nom) :
+                new ObjectParameter("nom", typeof(string));
+    
+            var prenomParameter = prenom != null ?
+                new ObjectParameter("prenom", prenom) :
+                new ObjectParameter("prenom", typeof(string));
+    
+            var dateNaissanceParameter = dateNaissance.HasValue ?
+                new ObjectParameter("dateNaissance", dateNaissance) :
+                new ObjectParameter("dateNaissance", typeof(System.DateTime));
+    
+            var adresseParameter = adresse != null ?
+                new ObjectParameter("adresse", adresse) :
+                new ObjectParameter("adresse", typeof(string));
+    
+            var codePostalParameter = codePostal.HasValue ?
+                new ObjectParameter("codePostal", codePostal) :
+                new ObjectParameter("codePostal", typeof(int));
+    
+            var telephoneParameter = telephone.HasValue ?
+                new ObjectParameter("telephone", telephone) :
+                new ObjectParameter("telephone", typeof(int));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var dateInscriptionParameter = dateInscription.HasValue ?
+                new ObjectParameter("dateInscription", dateInscription) :
+                new ObjectParameter("dateInscription", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateAdherent", nomParameter, prenomParameter, dateNaissanceParameter, adresseParameter, codePostalParameter, telephoneParameter, emailParameter, dateInscriptionParameter);
+        }
+    
+        public virtual int CreateAuteur(string nom, string prenom)
+        {
+            var nomParameter = nom != null ?
+                new ObjectParameter("nom", nom) :
+                new ObjectParameter("nom", typeof(string));
+    
+            var prenomParameter = prenom != null ?
+                new ObjectParameter("prenom", prenom) :
+                new ObjectParameter("prenom", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateAuteur", nomParameter, prenomParameter);
+        }
+    
+        public virtual int CreateBibliothecaire(string login, string password, string nom, string prenom)
+        {
+            var loginParameter = login != null ?
+                new ObjectParameter("login", login) :
+                new ObjectParameter("login", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            var nomParameter = nom != null ?
+                new ObjectParameter("nom", nom) :
+                new ObjectParameter("nom", typeof(string));
+    
+            var prenomParameter = prenom != null ?
+                new ObjectParameter("prenom", prenom) :
+                new ObjectParameter("prenom", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateBibliothecaire", loginParameter, passwordParameter, nomParameter, prenomParameter);
+        }
+    
+        public virtual int CreateEmplacement(string libelle)
+        {
+            var libelleParameter = libelle != null ?
+                new ObjectParameter("libelle", libelle) :
+                new ObjectParameter("libelle", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateEmplacement", libelleParameter);
+        }
+    
+        public virtual int CreateEmprunt(Nullable<int> livreId, Nullable<int> adherentId, Nullable<System.DateTime> dateEmprunt, Nullable<System.DateTime> dateRetour)
+        {
+            var livreIdParameter = livreId.HasValue ?
+                new ObjectParameter("livreId", livreId) :
+                new ObjectParameter("livreId", typeof(int));
+    
+            var adherentIdParameter = adherentId.HasValue ?
+                new ObjectParameter("adherentId", adherentId) :
+                new ObjectParameter("adherentId", typeof(int));
+    
+            var dateEmpruntParameter = dateEmprunt.HasValue ?
+                new ObjectParameter("dateEmprunt", dateEmprunt) :
+                new ObjectParameter("dateEmprunt", typeof(System.DateTime));
+    
+            var dateRetourParameter = dateRetour.HasValue ?
+                new ObjectParameter("dateRetour", dateRetour) :
+                new ObjectParameter("dateRetour", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateEmprunt", livreIdParameter, adherentIdParameter, dateEmpruntParameter, dateRetourParameter);
+        }
+    
+        public virtual int CreateGenre(string libelle)
+        {
+            var libelleParameter = libelle != null ?
+                new ObjectParameter("libelle", libelle) :
+                new ObjectParameter("libelle", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateGenre", libelleParameter);
+        }
+    
+        public virtual int CreateLivre(string titre, Nullable<System.DateTime> anneeParution, Nullable<int> genreId, Nullable<int> auteurId, Nullable<int> emplacementId)
+        {
+            var titreParameter = titre != null ?
+                new ObjectParameter("titre", titre) :
+                new ObjectParameter("titre", typeof(string));
+    
+            var anneeParutionParameter = anneeParution.HasValue ?
+                new ObjectParameter("anneeParution", anneeParution) :
+                new ObjectParameter("anneeParution", typeof(System.DateTime));
+    
+            var genreIdParameter = genreId.HasValue ?
+                new ObjectParameter("genreId", genreId) :
+                new ObjectParameter("genreId", typeof(int));
+    
+            var auteurIdParameter = auteurId.HasValue ?
+                new ObjectParameter("auteurId", auteurId) :
+                new ObjectParameter("auteurId", typeof(int));
+    
+            var emplacementIdParameter = emplacementId.HasValue ?
+                new ObjectParameter("emplacementId", emplacementId) :
+                new ObjectParameter("emplacementId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateLivre", titreParameter, anneeParutionParameter, genreIdParameter, auteurIdParameter, emplacementIdParameter);
+        }
+    
+        public virtual ObjectResult<ReadAdherents_Result> ReadAdherents()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ReadAdherents_Result>("ReadAdherents");
+        }
     }
 }

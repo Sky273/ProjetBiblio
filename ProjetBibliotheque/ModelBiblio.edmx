@@ -4,26 +4,26 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BibliothequeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BiblioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="adherent">
           <Key>
             <PropertyRef Name="adherent_ID" />
           </Key>
-          <Property Name="adherent_ID" Type="int" Nullable="false" />
-          <Property Name="adherent_nom" Type="char" MaxLength="25" />
-          <Property Name="adherent_prenom" Type="char" MaxLength="25" />
+          <Property Name="adherent_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adherent_nom" Type="varchar" MaxLength="25" />
+          <Property Name="adherent_prenom" Type="varchar" MaxLength="25" />
           <Property Name="adherent_date_naissance" Type="date" />
-          <Property Name="adherent_adresse" Type="char" MaxLength="25" />
+          <Property Name="adherent_adresse" Type="varchar" MaxLength="25" />
           <Property Name="adherent_code_postal" Type="int" />
           <Property Name="adherent_telephone" Type="int" />
-          <Property Name="adherent_email" Type="char" MaxLength="25" />
+          <Property Name="adherent_email" Type="varchar" MaxLength="25" />
           <Property Name="adherent_date_inscription" Type="date" />
         </EntityType>
         <EntityType Name="auteur">
           <Key>
             <PropertyRef Name="auteur_ID" />
           </Key>
-          <Property Name="auteur_ID" Type="int" Nullable="false" />
+          <Property Name="auteur_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="auteur_nom" Type="varchar" MaxLength="25" />
           <Property Name="auteur_prenom" Type="varchar" MaxLength="25" />
         </EntityType>
@@ -31,17 +31,17 @@
           <Key>
             <PropertyRef Name="bibliothecaire_ID" />
           </Key>
-          <Property Name="bibliothecaire_ID" Type="int" Nullable="false" />
-          <Property Name="bibliothecaire_login" Type="char" MaxLength="25" />
-          <Property Name="bibliothecaire_password" Type="char" MaxLength="25" />
-          <Property Name="bibliothecaire_nom" Type="char" MaxLength="25" />
-          <Property Name="bibliothecaire_prenom" Type="char" MaxLength="25" />
+          <Property Name="bibliothecaire_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bibliothecaire_login" Type="varchar" MaxLength="25" />
+          <Property Name="bibliothecaire_password" Type="varchar" MaxLength="25" />
+          <Property Name="bibliothecaire_nom" Type="varchar" MaxLength="25" />
+          <Property Name="bibliothecaire_prenom" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="emplacement">
           <Key>
             <PropertyRef Name="emplacement_ID" />
           </Key>
-          <Property Name="emplacement_ID" Type="int" Nullable="false" />
+          <Property Name="emplacement_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="emplacement_libelle" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="emprunter">
@@ -49,24 +49,24 @@
             <PropertyRef Name="livre_ID" />
             <PropertyRef Name="adherent_ID" />
           </Key>
-          <Property Name="date_emprunt" Type="date" />
-          <Property Name="date_retour" Type="date" />
           <Property Name="livre_ID" Type="int" Nullable="false" />
           <Property Name="adherent_ID" Type="int" Nullable="false" />
+          <Property Name="date_emprunt" Type="date" />
+          <Property Name="date_retour" Type="date" />
         </EntityType>
         <EntityType Name="genre">
           <Key>
             <PropertyRef Name="genre_ID" />
           </Key>
-          <Property Name="genre_ID" Type="int" Nullable="false" />
-          <Property Name="genre_libelle" Type="int" />
+          <Property Name="genre_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="genre_libelle" Type="varchar" MaxLength="25" />
         </EntityType>
         <EntityType Name="livre">
           <Key>
             <PropertyRef Name="livre_ID" />
           </Key>
-          <Property Name="livre_ID" Type="int" Nullable="false" />
-          <Property Name="livre_titre" Type="char" MaxLength="25" />
+          <Property Name="livre_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="livre_titre" Type="varchar" MaxLength="50" />
           <Property Name="livre_annee_parution" Type="date" />
           <Property Name="genre_ID" Type="int" />
           <Property Name="auteur_ID" Type="int" />
@@ -132,7 +132,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BibliothequeModelStoreContainer">
+        <Function Name="CreateAdherent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="prenom" Type="varchar" Mode="In" />
+          <Parameter Name="dateNaissance" Type="date" Mode="In" />
+          <Parameter Name="adresse" Type="varchar" Mode="In" />
+          <Parameter Name="codePostal" Type="int" Mode="In" />
+          <Parameter Name="telephone" Type="int" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="dateInscription" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CreateAuteur" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="prenom" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CreateBibliothecaire" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="login" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="nom" Type="varchar" Mode="In" />
+          <Parameter Name="prenom" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CreateEmplacement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="libelle" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CreateEmprunt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="livreId" Type="int" Mode="In" />
+          <Parameter Name="adherentId" Type="int" Mode="In" />
+          <Parameter Name="dateEmprunt" Type="date" Mode="In" />
+          <Parameter Name="dateRetour" Type="date" Mode="In" />
+        </Function>
+        <Function Name="CreateGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="libelle" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CreateLivre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="titre" Type="varchar" Mode="In" />
+          <Parameter Name="anneeParution" Type="date" Mode="In" />
+          <Parameter Name="genreId" Type="int" Mode="In" />
+          <Parameter Name="auteurId" Type="int" Mode="In" />
+          <Parameter Name="emplacementId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ReadAdherents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="BiblioModelStoreContainer">
           <EntitySet Name="adherent" EntityType="Self.adherent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="auteur" EntityType="Self.auteur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bibliothecaire" EntityType="Self.bibliothecaire" Schema="dbo" store:Type="Tables" />
@@ -165,19 +205,19 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BibliothequeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="BiblioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="adherent">
           <Key>
             <PropertyRef Name="adherent_ID" />
           </Key>
-          <Property Name="adherent_ID" Type="Int32" Nullable="false" />
-          <Property Name="adherent_nom" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="adherent_prenom" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="adherent_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adherent_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="adherent_prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_date_naissance" Type="DateTime" Precision="0" />
-          <Property Name="adherent_adresse" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="adherent_adresse" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_code_postal" Type="Int32" />
           <Property Name="adherent_telephone" Type="Int32" />
-          <Property Name="adherent_email" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="adherent_email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_date_inscription" Type="DateTime" Precision="0" />
           <NavigationProperty Name="emprunters" Relationship="Self.FK_emprunter_adherent_ID" FromRole="adherent" ToRole="emprunter" />
         </EntityType>
@@ -185,7 +225,7 @@
           <Key>
             <PropertyRef Name="auteur_ID" />
           </Key>
-          <Property Name="auteur_ID" Type="Int32" Nullable="false" />
+          <Property Name="auteur_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="auteur_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="auteur_prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="livres" Relationship="Self.FK_livre_auteur_ID" FromRole="auteur" ToRole="livre" />
@@ -194,17 +234,17 @@
           <Key>
             <PropertyRef Name="bibliothecaire_ID" />
           </Key>
-          <Property Name="bibliothecaire_ID" Type="Int32" Nullable="false" />
-          <Property Name="bibliothecaire_login" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="bibliothecaire_password" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="bibliothecaire_nom" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
-          <Property Name="bibliothecaire_prenom" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="bibliothecaire_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bibliothecaire_login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="bibliothecaire_password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="bibliothecaire_nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="bibliothecaire_prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="emplacement">
           <Key>
             <PropertyRef Name="emplacement_ID" />
           </Key>
-          <Property Name="emplacement_ID" Type="Int32" Nullable="false" />
+          <Property Name="emplacement_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="emplacement_libelle" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="livres" Relationship="Self.FK_livre_emplacement_ID" FromRole="emplacement" ToRole="livre" />
         </EntityType>
@@ -213,10 +253,10 @@
             <PropertyRef Name="livre_ID" />
             <PropertyRef Name="adherent_ID" />
           </Key>
-          <Property Name="date_emprunt" Type="DateTime" Precision="0" />
-          <Property Name="date_retour" Type="DateTime" Precision="0" />
           <Property Name="livre_ID" Type="Int32" Nullable="false" />
           <Property Name="adherent_ID" Type="Int32" Nullable="false" />
+          <Property Name="date_emprunt" Type="DateTime" Precision="0" />
+          <Property Name="date_retour" Type="DateTime" Precision="0" />
           <NavigationProperty Name="adherent" Relationship="Self.FK_emprunter_adherent_ID" FromRole="emprunter" ToRole="adherent" />
           <NavigationProperty Name="livre" Relationship="Self.FK_emprunter_livre_ID" FromRole="emprunter" ToRole="livre" />
         </EntityType>
@@ -224,16 +264,16 @@
           <Key>
             <PropertyRef Name="genre_ID" />
           </Key>
-          <Property Name="genre_ID" Type="Int32" Nullable="false" />
-          <Property Name="genre_libelle" Type="Int32" />
+          <Property Name="genre_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genre_libelle" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="livres" Relationship="Self.FK_livre_genre_ID" FromRole="genre" ToRole="livre" />
         </EntityType>
         <EntityType Name="livre">
           <Key>
             <PropertyRef Name="livre_ID" />
           </Key>
-          <Property Name="livre_ID" Type="Int32" Nullable="false" />
-          <Property Name="livre_titre" Type="String" MaxLength="25" FixedLength="true" Unicode="false" />
+          <Property Name="livre_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="livre_titre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="livre_annee_parution" Type="DateTime" Precision="0" />
           <Property Name="genre_ID" Type="Int32" />
           <Property Name="auteur_ID" Type="Int32" />
@@ -303,7 +343,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BibliothequeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BiblioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="adherents" EntityType="Self.adherent" />
           <EntitySet Name="auteurs" EntityType="Self.auteur" />
           <EntitySet Name="bibliothecaires" EntityType="Self.bibliothecaire" />
@@ -331,15 +371,66 @@
             <End Role="genre" EntitySet="genres" />
             <End Role="livre" EntitySet="livres" />
           </AssociationSet>
+          <FunctionImport Name="CreateAdherent">
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="prenom" Mode="In" Type="String" />
+            <Parameter Name="dateNaissance" Mode="In" Type="DateTime" />
+            <Parameter Name="adresse" Mode="In" Type="String" />
+            <Parameter Name="codePostal" Mode="In" Type="Int32" />
+            <Parameter Name="telephone" Mode="In" Type="Int32" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="dateInscription" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CreateAuteur">
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="prenom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateBibliothecaire">
+            <Parameter Name="login" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="nom" Mode="In" Type="String" />
+            <Parameter Name="prenom" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateEmplacement">
+            <Parameter Name="libelle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateEmprunt">
+            <Parameter Name="livreId" Mode="In" Type="Int32" />
+            <Parameter Name="adherentId" Mode="In" Type="Int32" />
+            <Parameter Name="dateEmprunt" Mode="In" Type="DateTime" />
+            <Parameter Name="dateRetour" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CreateGenre">
+            <Parameter Name="libelle" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CreateLivre">
+            <Parameter Name="titre" Mode="In" Type="String" />
+            <Parameter Name="anneeParution" Mode="In" Type="DateTime" />
+            <Parameter Name="genreId" Mode="In" Type="Int32" />
+            <Parameter Name="auteurId" Mode="In" Type="Int32" />
+            <Parameter Name="emplacementId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ReadAdherents" ReturnType="Collection(BiblioModel.ReadAdherents_Result)" />
         </EntityContainer>
+        <ComplexType Name="ReadAdherents_Result">
+          <Property Type="Int32" Name="adherent_ID" Nullable="false" />
+          <Property Type="String" Name="adherent_nom" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="adherent_prenom" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="adherent_date_naissance" Nullable="true" />
+          <Property Type="String" Name="adherent_adresse" Nullable="true" MaxLength="25" />
+          <Property Type="Int32" Name="adherent_code_postal" Nullable="true" />
+          <Property Type="Int32" Name="adherent_telephone" Nullable="true" />
+          <Property Type="String" Name="adherent_email" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="adherent_date_inscription" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BibliothequeModelStoreContainer" CdmEntityContainer="BibliothequeEntities">
+        <EntityContainerMapping StorageEntityContainer="BiblioModelStoreContainer" CdmEntityContainer="BiblioEntities">
           <EntitySetMapping Name="adherents">
-            <EntityTypeMapping TypeName="BibliothequeModel.adherent">
+            <EntityTypeMapping TypeName="BiblioModel.adherent">
               <MappingFragment StoreEntitySet="adherent">
                 <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
                 <ScalarProperty Name="adherent_nom" ColumnName="adherent_nom" />
@@ -354,7 +445,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="auteurs">
-            <EntityTypeMapping TypeName="BibliothequeModel.auteur">
+            <EntityTypeMapping TypeName="BiblioModel.auteur">
               <MappingFragment StoreEntitySet="auteur">
                 <ScalarProperty Name="auteur_ID" ColumnName="auteur_ID" />
                 <ScalarProperty Name="auteur_nom" ColumnName="auteur_nom" />
@@ -363,7 +454,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bibliothecaires">
-            <EntityTypeMapping TypeName="BibliothequeModel.bibliothecaire">
+            <EntityTypeMapping TypeName="BiblioModel.bibliothecaire">
               <MappingFragment StoreEntitySet="bibliothecaire">
                 <ScalarProperty Name="bibliothecaire_ID" ColumnName="bibliothecaire_ID" />
                 <ScalarProperty Name="bibliothecaire_login" ColumnName="bibliothecaire_login" />
@@ -374,7 +465,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="emplacements">
-            <EntityTypeMapping TypeName="BibliothequeModel.emplacement">
+            <EntityTypeMapping TypeName="BiblioModel.emplacement">
               <MappingFragment StoreEntitySet="emplacement">
                 <ScalarProperty Name="emplacement_ID" ColumnName="emplacement_ID" />
                 <ScalarProperty Name="emplacement_libelle" ColumnName="emplacement_libelle" />
@@ -382,17 +473,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="emprunters">
-            <EntityTypeMapping TypeName="BibliothequeModel.emprunter">
+            <EntityTypeMapping TypeName="BiblioModel.emprunter">
               <MappingFragment StoreEntitySet="emprunter">
-                <ScalarProperty Name="date_emprunt" ColumnName="date_emprunt" />
-                <ScalarProperty Name="date_retour" ColumnName="date_retour" />
                 <ScalarProperty Name="livre_ID" ColumnName="livre_ID" />
                 <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
+                <ScalarProperty Name="date_emprunt" ColumnName="date_emprunt" />
+                <ScalarProperty Name="date_retour" ColumnName="date_retour" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="genres">
-            <EntityTypeMapping TypeName="BibliothequeModel.genre">
+            <EntityTypeMapping TypeName="BiblioModel.genre">
               <MappingFragment StoreEntitySet="genre">
                 <ScalarProperty Name="genre_ID" ColumnName="genre_ID" />
                 <ScalarProperty Name="genre_libelle" ColumnName="genre_libelle" />
@@ -400,7 +491,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="livres">
-            <EntityTypeMapping TypeName="BibliothequeModel.livre">
+            <EntityTypeMapping TypeName="BiblioModel.livre">
               <MappingFragment StoreEntitySet="livre">
                 <ScalarProperty Name="livre_ID" ColumnName="livre_ID" />
                 <ScalarProperty Name="livre_titre" ColumnName="livre_titre" />
@@ -411,6 +502,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateAdherent" FunctionName="BiblioModel.Store.CreateAdherent" />
+          <FunctionImportMapping FunctionImportName="CreateAuteur" FunctionName="BiblioModel.Store.CreateAuteur" />
+          <FunctionImportMapping FunctionImportName="CreateBibliothecaire" FunctionName="BiblioModel.Store.CreateBibliothecaire" />
+          <FunctionImportMapping FunctionImportName="CreateEmplacement" FunctionName="BiblioModel.Store.CreateEmplacement" />
+          <FunctionImportMapping FunctionImportName="CreateEmprunt" FunctionName="BiblioModel.Store.CreateEmprunt" />
+          <FunctionImportMapping FunctionImportName="CreateGenre" FunctionName="BiblioModel.Store.CreateGenre" />
+          <FunctionImportMapping FunctionImportName="CreateLivre" FunctionName="BiblioModel.Store.CreateLivre" />
+          <FunctionImportMapping FunctionImportName="ReadAdherents" FunctionName="BiblioModel.Store.ReadAdherents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiblioModel.ReadAdherents_Result">
+                <ScalarProperty Name="adherent_ID" ColumnName="adherent_ID" />
+                <ScalarProperty Name="adherent_nom" ColumnName="adherent_nom" />
+                <ScalarProperty Name="adherent_prenom" ColumnName="adherent_prenom" />
+                <ScalarProperty Name="adherent_date_naissance" ColumnName="adherent_date_naissance" />
+                <ScalarProperty Name="adherent_adresse" ColumnName="adherent_adresse" />
+                <ScalarProperty Name="adherent_code_postal" ColumnName="adherent_code_postal" />
+                <ScalarProperty Name="adherent_telephone" ColumnName="adherent_telephone" />
+                <ScalarProperty Name="adherent_email" ColumnName="adherent_email" />
+                <ScalarProperty Name="adherent_date_inscription" ColumnName="adherent_date_inscription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
