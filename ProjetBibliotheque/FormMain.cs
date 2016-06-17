@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ProjetBibliotheque
 {
     public partial class FormMain : Form
@@ -78,6 +79,12 @@ namespace ProjetBibliotheque
                 dataGridViewLivres.Columns[6].HeaderText = "Emplacement";
 
             }
+        }
+
+        private void buttonAjouterAdherent_Click(object sender, EventArgs e)
+        {
+            FormAdherent formAdherent = new FormAdherent();
+            formAdherent.ShowDialog();
         }
     }
 }

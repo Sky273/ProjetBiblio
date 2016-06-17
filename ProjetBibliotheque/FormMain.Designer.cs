@@ -32,31 +32,32 @@
             this.tabPageAdherent = new System.Windows.Forms.TabPage();
             this.dataGridViewAdherents = new System.Windows.Forms.DataGridView();
             this.tabPageAuteur = new System.Windows.Forms.TabPage();
+            this.dataGridViewAuteurs = new System.Windows.Forms.DataGridView();
             this.tabPageBibliothecaire = new System.Windows.Forms.TabPage();
+            this.dataGridViewBibliothecaires = new System.Windows.Forms.DataGridView();
             this.tabPageEmplacement = new System.Windows.Forms.TabPage();
+            this.dataGridViewEmplacements = new System.Windows.Forms.DataGridView();
             this.tabPageEmprunt = new System.Windows.Forms.TabPage();
             this.dataGridViewEmprunts = new System.Windows.Forms.DataGridView();
             this.tabPageGenre = new System.Windows.Forms.TabPage();
-            this.tabPageLivre = new System.Windows.Forms.TabPage();
-            this.dataGridViewAuteurs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewBibliothecaires = new System.Windows.Forms.DataGridView();
-            this.dataGridViewEmplacements = new System.Windows.Forms.DataGridView();
             this.dataGridViewGenres = new System.Windows.Forms.DataGridView();
+            this.tabPageLivre = new System.Windows.Forms.TabPage();
             this.dataGridViewLivres = new System.Windows.Forms.DataGridView();
+            this.buttonAjouterAdherent = new System.Windows.Forms.Button();
             this.tabControlGestion.SuspendLayout();
             this.tabPageAdherent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdherents)).BeginInit();
             this.tabPageAuteur.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAuteurs)).BeginInit();
             this.tabPageBibliothecaire.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBibliothecaires)).BeginInit();
             this.tabPageEmplacement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmplacements)).BeginInit();
             this.tabPageEmprunt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmprunts)).BeginInit();
             this.tabPageGenre.SuspendLayout();
-            this.tabPageLivre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAuteurs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBibliothecaires)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmplacements)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGenres)).BeginInit();
+            this.tabPageLivre.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,7 @@
             // 
             // tabPageAdherent
             // 
+            this.tabPageAdherent.Controls.Add(this.buttonAjouterAdherent);
             this.tabPageAdherent.Controls.Add(this.dataGridViewAdherents);
             this.tabPageAdherent.Location = new System.Drawing.Point(4, 22);
             this.tabPageAdherent.Name = "tabPageAdherent";
@@ -107,6 +109,14 @@
             this.tabPageAuteur.Text = "Auteurs";
             this.tabPageAuteur.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewAuteurs
+            // 
+            this.dataGridViewAuteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAuteurs.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewAuteurs.Name = "dataGridViewAuteurs";
+            this.dataGridViewAuteurs.Size = new System.Drawing.Size(750, 313);
+            this.dataGridViewAuteurs.TabIndex = 0;
+            // 
             // tabPageBibliothecaire
             // 
             this.tabPageBibliothecaire.Controls.Add(this.dataGridViewBibliothecaires);
@@ -118,6 +128,14 @@
             this.tabPageBibliothecaire.Text = "Bibliothecaires";
             this.tabPageBibliothecaire.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewBibliothecaires
+            // 
+            this.dataGridViewBibliothecaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBibliothecaires.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewBibliothecaires.Name = "dataGridViewBibliothecaires";
+            this.dataGridViewBibliothecaires.Size = new System.Drawing.Size(750, 313);
+            this.dataGridViewBibliothecaires.TabIndex = 1;
+            // 
             // tabPageEmplacement
             // 
             this.tabPageEmplacement.Controls.Add(this.dataGridViewEmplacements);
@@ -128,6 +146,14 @@
             this.tabPageEmplacement.TabIndex = 3;
             this.tabPageEmplacement.Text = "Emplacements";
             this.tabPageEmplacement.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewEmplacements
+            // 
+            this.dataGridViewEmplacements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmplacements.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewEmplacements.Name = "dataGridViewEmplacements";
+            this.dataGridViewEmplacements.Size = new System.Drawing.Size(750, 313);
+            this.dataGridViewEmplacements.TabIndex = 1;
             // 
             // tabPageEmprunt
             // 
@@ -159,6 +185,14 @@
             this.tabPageGenre.Text = "Genres";
             this.tabPageGenre.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewGenres
+            // 
+            this.dataGridViewGenres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGenres.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewGenres.Name = "dataGridViewGenres";
+            this.dataGridViewGenres.Size = new System.Drawing.Size(750, 313);
+            this.dataGridViewGenres.TabIndex = 1;
+            // 
             // tabPageLivre
             // 
             this.tabPageLivre.Controls.Add(this.dataGridViewLivres);
@@ -170,38 +204,6 @@
             this.tabPageLivre.Text = "Livres";
             this.tabPageLivre.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewAuteurs
-            // 
-            this.dataGridViewAuteurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAuteurs.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewAuteurs.Name = "dataGridViewAuteurs";
-            this.dataGridViewAuteurs.Size = new System.Drawing.Size(750, 313);
-            this.dataGridViewAuteurs.TabIndex = 0;
-            // 
-            // dataGridViewBibliothecaires
-            // 
-            this.dataGridViewBibliothecaires.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBibliothecaires.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewBibliothecaires.Name = "dataGridViewBibliothecaires";
-            this.dataGridViewBibliothecaires.Size = new System.Drawing.Size(750, 313);
-            this.dataGridViewBibliothecaires.TabIndex = 1;
-            // 
-            // dataGridViewEmplacements
-            // 
-            this.dataGridViewEmplacements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmplacements.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewEmplacements.Name = "dataGridViewEmplacements";
-            this.dataGridViewEmplacements.Size = new System.Drawing.Size(750, 313);
-            this.dataGridViewEmplacements.TabIndex = 1;
-            // 
-            // dataGridViewGenres
-            // 
-            this.dataGridViewGenres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGenres.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewGenres.Name = "dataGridViewGenres";
-            this.dataGridViewGenres.Size = new System.Drawing.Size(750, 313);
-            this.dataGridViewGenres.TabIndex = 1;
-            // 
             // dataGridViewLivres
             // 
             this.dataGridViewLivres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -209,6 +211,16 @@
             this.dataGridViewLivres.Name = "dataGridViewLivres";
             this.dataGridViewLivres.Size = new System.Drawing.Size(750, 313);
             this.dataGridViewLivres.TabIndex = 1;
+            // 
+            // buttonAjouterAdherent
+            // 
+            this.buttonAjouterAdherent.Location = new System.Drawing.Point(548, 338);
+            this.buttonAjouterAdherent.Name = "buttonAjouterAdherent";
+            this.buttonAjouterAdherent.Size = new System.Drawing.Size(75, 23);
+            this.buttonAjouterAdherent.TabIndex = 1;
+            this.buttonAjouterAdherent.Text = "Ajouter";
+            this.buttonAjouterAdherent.UseVisualStyleBackColor = true;
+            this.buttonAjouterAdherent.Click += new System.EventHandler(this.buttonAjouterAdherent_Click);
             // 
             // FormMain
             // 
@@ -223,16 +235,16 @@
             this.tabPageAdherent.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdherents)).EndInit();
             this.tabPageAuteur.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAuteurs)).EndInit();
             this.tabPageBibliothecaire.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBibliothecaires)).EndInit();
             this.tabPageEmplacement.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmplacements)).EndInit();
             this.tabPageEmprunt.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmprunts)).EndInit();
             this.tabPageGenre.ResumeLayout(false);
-            this.tabPageLivre.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAuteurs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBibliothecaires)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmplacements)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGenres)).EndInit();
+            this.tabPageLivre.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLivres)).EndInit();
             this.ResumeLayout(false);
 
@@ -255,5 +267,6 @@
         private System.Windows.Forms.DataGridView dataGridViewEmplacements;
         private System.Windows.Forms.DataGridView dataGridViewGenres;
         private System.Windows.Forms.DataGridView dataGridViewLivres;
+        private System.Windows.Forms.Button buttonAjouterAdherent;
     }
 }

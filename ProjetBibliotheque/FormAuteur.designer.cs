@@ -1,4 +1,4 @@
-﻿namespace ProjetBiblio
+﻿namespace ProjetBibliotheque
 {
     partial class FormAuteur
     {

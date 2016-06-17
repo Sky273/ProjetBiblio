@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetBiblio
+namespace ProjetBibliotheque
 {
     public partial class FormAuteur : Form
     {
