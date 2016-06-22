@@ -18,17 +18,13 @@ namespace ProjetBibliotheque
             InitializeComponent();
         }
 
-        private void tabPageAdherent_Click(object sender, EventArgs e)
-        {
-        }
-
         private void FormMain_Load(object sender, EventArgs e)
         {
         }
 
         private void buttonAjouterAdherent_Click(object sender, EventArgs e)
         {
-            FormAdherent formAdherent = new FormAdherent();
+            FormAdherent formAdherent = new FormAdherent(dataGridViewAdherents);
             formAdherent.ShowDialog();
         }
 
@@ -123,7 +119,7 @@ namespace ProjetBibliotheque
 
         private void tabPageAdherent_Enter(object sender, EventArgs e)
         {
-            if (dataGridViewAdherents.DataSource == null)
+            //if (dataGridViewAdherents.DataSource == null)
             {
                 using (BiblioEntities context = new BiblioEntities())
                 {
@@ -134,9 +130,10 @@ namespace ProjetBibliotheque
                     dataGridViewAdherents.Columns[3].HeaderText = "Date de naissance";
                     dataGridViewAdherents.Columns[4].HeaderText = "Adresse";
                     dataGridViewAdherents.Columns[5].HeaderText = "Code postal";
-                    dataGridViewAdherents.Columns[6].HeaderText = "Téléphone";
-                    dataGridViewAdherents.Columns[7].HeaderText = "Email";
-                    dataGridViewAdherents.Columns[8].HeaderText = "Date d'inscription";
+                    dataGridViewAdherents.Columns[6].HeaderText = "Ville";
+                    dataGridViewAdherents.Columns[7].HeaderText = "Téléphone";
+                    dataGridViewAdherents.Columns[8].HeaderText = "Email";
+                    dataGridViewAdherents.Columns[9].HeaderText = "Date d'inscription";
 
                 }
             }

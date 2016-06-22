@@ -35,7 +35,7 @@ namespace ProjetBibliotheque
         public virtual DbSet<genre> genres { get; set; }
         public virtual DbSet<livre> livres { get; set; }
     
-        public virtual int CreateAdherent(string nom, string prenom, Nullable<System.DateTime> dateNaissance, string adresse, Nullable<int> codePostal, Nullable<int> telephone, string email, Nullable<System.DateTime> dateInscription)
+        public virtual int CreateAdherent(string nom, string prenom, Nullable<System.DateTime> dateNaissance, string adresse, string codePostal, string ville, string telephone, string email, Nullable<System.DateTime> dateInscription)
         {
             var nomParameter = nom != null ?
                 new ObjectParameter("nom", nom) :
@@ -53,13 +53,17 @@ namespace ProjetBibliotheque
                 new ObjectParameter("adresse", adresse) :
                 new ObjectParameter("adresse", typeof(string));
     
-            var codePostalParameter = codePostal.HasValue ?
+            var codePostalParameter = codePostal != null ?
                 new ObjectParameter("codePostal", codePostal) :
-                new ObjectParameter("codePostal", typeof(int));
+                new ObjectParameter("codePostal", typeof(string));
     
-            var telephoneParameter = telephone.HasValue ?
+            var villeParameter = ville != null ?
+                new ObjectParameter("ville", ville) :
+                new ObjectParameter("ville", typeof(string));
+    
+            var telephoneParameter = telephone != null ?
                 new ObjectParameter("telephone", telephone) :
-                new ObjectParameter("telephone", typeof(int));
+                new ObjectParameter("telephone", typeof(string));
     
             var emailParameter = email != null ?
                 new ObjectParameter("email", email) :
@@ -69,7 +73,7 @@ namespace ProjetBibliotheque
                 new ObjectParameter("dateInscription", dateInscription) :
                 new ObjectParameter("dateInscription", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateAdherent", nomParameter, prenomParameter, dateNaissanceParameter, adresseParameter, codePostalParameter, telephoneParameter, emailParameter, dateInscriptionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateAdherent", nomParameter, prenomParameter, dateNaissanceParameter, adresseParameter, codePostalParameter, villeParameter, telephoneParameter, emailParameter, dateInscriptionParameter);
         }
     
         public virtual int CreateAuteur(string nom, string prenom)

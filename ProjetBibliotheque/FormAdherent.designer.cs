@@ -47,6 +47,8 @@
             this.dateTimePickerNaissance = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInscription = new System.Windows.Forms.DateTimePicker();
             this.buttonEnregistrer = new System.Windows.Forms.Button();
+            this.textBoxVille = new System.Windows.Forms.TextBox();
+            this.labelVille = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,72 +65,72 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "nom";
+            this.label2.Text = "Nom";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "prénom";
+            this.label3.Text = "Prénom";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 199);
+            this.label4.Location = new System.Drawing.Point(12, 224);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
+            this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "date de naissance";
+            this.label4.Text = "Date de naissance";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 5;
-            this.label5.Text = "adresse";
+            this.label5.Text = "Adresse";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 6;
-            this.label6.Text = "code postal";
+            this.label6.Text = "Code postal";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 147);
+            this.label7.Location = new System.Drawing.Point(12, 172);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 7;
-            this.label7.Text = "téléphone";
+            this.label7.Text = "Téléphone";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 173);
+            this.label8.Location = new System.Drawing.Point(12, 198);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 8;
-            this.label8.Text = "email";
+            this.label8.Text = "Email";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 225);
+            this.label9.Location = new System.Drawing.Point(12, 249);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 13);
+            this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 9;
-            this.label9.Text = "date d\'inscription";
+            this.label9.Text = "Date d\'inscription";
             // 
             // textBoxId
             // 
@@ -167,35 +169,35 @@
             // 
             // textBoxPhone
             // 
-            this.textBoxPhone.Location = new System.Drawing.Point(162, 140);
+            this.textBoxPhone.Location = new System.Drawing.Point(162, 165);
             this.textBoxPhone.Name = "textBoxPhone";
             this.textBoxPhone.Size = new System.Drawing.Size(160, 20);
             this.textBoxPhone.TabIndex = 15;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(162, 166);
+            this.textBoxMail.Location = new System.Drawing.Point(162, 191);
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(160, 20);
             this.textBoxMail.TabIndex = 16;
             // 
             // dateTimePickerNaissance
             // 
-            this.dateTimePickerNaissance.Location = new System.Drawing.Point(162, 192);
+            this.dateTimePickerNaissance.Location = new System.Drawing.Point(163, 217);
             this.dateTimePickerNaissance.Name = "dateTimePickerNaissance";
             this.dateTimePickerNaissance.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerNaissance.TabIndex = 17;
             // 
             // dateTimePickerInscription
             // 
-            this.dateTimePickerInscription.Location = new System.Drawing.Point(162, 218);
+            this.dateTimePickerInscription.Location = new System.Drawing.Point(163, 243);
             this.dateTimePickerInscription.Name = "dateTimePickerInscription";
             this.dateTimePickerInscription.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerInscription.TabIndex = 18;
             // 
             // buttonEnregistrer
             // 
-            this.buttonEnregistrer.Location = new System.Drawing.Point(247, 244);
+            this.buttonEnregistrer.Location = new System.Drawing.Point(248, 269);
             this.buttonEnregistrer.Name = "buttonEnregistrer";
             this.buttonEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.buttonEnregistrer.TabIndex = 19;
@@ -203,11 +205,29 @@
             this.buttonEnregistrer.UseVisualStyleBackColor = true;
             this.buttonEnregistrer.Click += new System.EventHandler(this.buttonEnregistrer_Click);
             // 
+            // textBoxVille
+            // 
+            this.textBoxVille.Location = new System.Drawing.Point(162, 139);
+            this.textBoxVille.Name = "textBoxVille";
+            this.textBoxVille.Size = new System.Drawing.Size(160, 20);
+            this.textBoxVille.TabIndex = 20;
+            // 
+            // labelVille
+            // 
+            this.labelVille.AutoSize = true;
+            this.labelVille.Location = new System.Drawing.Point(12, 146);
+            this.labelVille.Name = "labelVille";
+            this.labelVille.Size = new System.Drawing.Size(26, 13);
+            this.labelVille.TabIndex = 21;
+            this.labelVille.Text = "Ville";
+            // 
             // FormAdherent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 269);
+            this.ClientSize = new System.Drawing.Size(335, 299);
+            this.Controls.Add(this.labelVille);
+            this.Controls.Add(this.textBoxVille);
             this.Controls.Add(this.buttonEnregistrer);
             this.Controls.Add(this.dateTimePickerInscription);
             this.Controls.Add(this.dateTimePickerNaissance);
@@ -254,5 +274,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerNaissance;
         private System.Windows.Forms.DateTimePicker dateTimePickerInscription;
         private System.Windows.Forms.Button buttonEnregistrer;
+        private System.Windows.Forms.TextBox textBoxVille;
+        private System.Windows.Forms.Label labelVille;
     }
 }

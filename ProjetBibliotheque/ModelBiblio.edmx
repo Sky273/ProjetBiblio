@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BibliothequeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="BibliothequeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="adherent">
           <Key>
             <PropertyRef Name="adherent_ID" />
@@ -14,7 +14,7 @@
           <Property Name="adherent_prenom" Type="varchar" MaxLength="25" />
           <Property Name="adherent_date_naissance" Type="date" />
           <Property Name="adherent_adresse" Type="varchar" MaxLength="50" />
-          <Property Name="adherent_code_postal" Type="int" />
+          <Property Name="adherent_code_postal" Type="varchar" MaxLength="25" />
           <Property Name="adherent_ville" Type="varchar" MaxLength="25" />
           <Property Name="adherent_telephone" Type="varchar" MaxLength="14" />
           <Property Name="adherent_email" Type="varchar" MaxLength="25" />
@@ -138,8 +138,9 @@
           <Parameter Name="prenom" Type="varchar" Mode="In" />
           <Parameter Name="dateNaissance" Type="date" Mode="In" />
           <Parameter Name="adresse" Type="varchar" Mode="In" />
-          <Parameter Name="codePostal" Type="int" Mode="In" />
-          <Parameter Name="telephone" Type="int" Mode="In" />
+          <Parameter Name="codePostal" Type="varchar" Mode="In" />
+          <Parameter Name="ville" Type="varchar" Mode="In" />
+          <Parameter Name="telephone" Type="varchar" Mode="In" />
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="dateInscription" Type="date" Mode="In" />
         </Function>
@@ -208,7 +209,8 @@
             <End Role="livre" EntitySet="livre" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BibliothequeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -221,7 +223,7 @@
           <Property Name="adherent_prenom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_date_naissance" Type="DateTime" Precision="0" />
           <Property Name="adherent_adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="adherent_code_postal" Type="Int32" />
+          <Property Name="adherent_code_postal" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_ville" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="adherent_telephone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
           <Property Name="adherent_email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
@@ -383,8 +385,9 @@
             <Parameter Name="prenom" Mode="In" Type="String" />
             <Parameter Name="dateNaissance" Mode="In" Type="DateTime" />
             <Parameter Name="adresse" Mode="In" Type="String" />
-            <Parameter Name="codePostal" Mode="In" Type="Int32" />
-            <Parameter Name="telephone" Mode="In" Type="Int32" />
+            <Parameter Name="codePostal" Mode="In" Type="String" />
+            <Parameter Name="ville" Mode="In" Type="String" />
+            <Parameter Name="telephone" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="dateInscription" Mode="In" Type="DateTime" />
           </FunctionImport>
@@ -399,7 +402,7 @@
             <Parameter Name="prenom" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateEmplacement">
-          <Parameter Name="libelle" Mode="In" Type="String" />
+            <Parameter Name="libelle" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateEmprunt">
             <Parameter Name="livreId" Mode="In" Type="Int32" />
@@ -408,7 +411,7 @@
             <Parameter Name="dateRetour" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="CreateGenre">
-          <Parameter Name="libelle" Mode="In" Type="String" />
+            <Parameter Name="libelle" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreateLivre">
             <Parameter Name="titre" Mode="In" Type="String" />
@@ -431,7 +434,7 @@
           <Property Type="String" Name="adherent_prenom" Nullable="true" MaxLength="25" />
           <Property Type="DateTime" Name="adherent_date_naissance" Nullable="true" />
           <Property Type="String" Name="adherent_adresse" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="adherent_code_postal" Nullable="true" />
+          <Property Type="String" Name="adherent_code_postal" Nullable="true" MaxLength="25" />
           <Property Type="String" Name="adherent_ville" Nullable="true" MaxLength="25" />
           <Property Type="String" Name="adherent_telephone" Nullable="true" MaxLength="14" />
           <Property Type="String" Name="adherent_email" Nullable="true" MaxLength="25" />

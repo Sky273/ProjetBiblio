@@ -87,7 +87,6 @@
             this.tabPageAdherent.TabIndex = 0;
             this.tabPageAdherent.Text = "Adherents";
             this.tabPageAdherent.UseVisualStyleBackColor = true;
-            this.tabPageAdherent.Click += new System.EventHandler(this.tabPageAdherent_Click);
             this.tabPageAdherent.Enter += new System.EventHandler(this.tabPageAdherent_Enter);
             // 
             // buttonAjouterAdherent
