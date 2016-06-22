@@ -30,6 +30,7 @@
         {
             this.tabControlGestion = new System.Windows.Forms.TabControl();
             this.tabPageAdherent = new System.Windows.Forms.TabPage();
+            this.buttonAjouterAdherent = new System.Windows.Forms.Button();
             this.dataGridViewAdherents = new System.Windows.Forms.DataGridView();
             this.tabPageAuteur = new System.Windows.Forms.TabPage();
             this.dataGridViewAuteurs = new System.Windows.Forms.DataGridView();
@@ -43,7 +44,6 @@
             this.dataGridViewGenres = new System.Windows.Forms.DataGridView();
             this.tabPageLivre = new System.Windows.Forms.TabPage();
             this.dataGridViewLivres = new System.Windows.Forms.DataGridView();
-            this.buttonAjouterAdherent = new System.Windows.Forms.Button();
             this.tabControlGestion.SuspendLayout();
             this.tabPageAdherent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAdherents)).BeginInit();
@@ -88,6 +88,17 @@
             this.tabPageAdherent.Text = "Adherents";
             this.tabPageAdherent.UseVisualStyleBackColor = true;
             this.tabPageAdherent.Click += new System.EventHandler(this.tabPageAdherent_Click);
+            this.tabPageAdherent.Enter += new System.EventHandler(this.tabPageAdherent_Enter);
+            // 
+            // buttonAjouterAdherent
+            // 
+            this.buttonAjouterAdherent.Location = new System.Drawing.Point(548, 338);
+            this.buttonAjouterAdherent.Name = "buttonAjouterAdherent";
+            this.buttonAjouterAdherent.Size = new System.Drawing.Size(75, 23);
+            this.buttonAjouterAdherent.TabIndex = 1;
+            this.buttonAjouterAdherent.Text = "Ajouter";
+            this.buttonAjouterAdherent.UseVisualStyleBackColor = true;
+            this.buttonAjouterAdherent.Click += new System.EventHandler(this.buttonAjouterAdherent_Click);
             // 
             // dataGridViewAdherents
             // 
@@ -108,6 +119,7 @@
             this.tabPageAuteur.TabIndex = 1;
             this.tabPageAuteur.Text = "Auteurs";
             this.tabPageAuteur.UseVisualStyleBackColor = true;
+            this.tabPageAuteur.Enter += new System.EventHandler(this.tabPageAuteur_Enter);
             // 
             // dataGridViewAuteurs
             // 
@@ -127,6 +139,7 @@
             this.tabPageBibliothecaire.TabIndex = 2;
             this.tabPageBibliothecaire.Text = "Bibliothecaires";
             this.tabPageBibliothecaire.UseVisualStyleBackColor = true;
+            this.tabPageBibliothecaire.Enter += new System.EventHandler(this.tabPageBibliothecaire_Enter);
             // 
             // dataGridViewBibliothecaires
             // 
@@ -146,6 +159,7 @@
             this.tabPageEmplacement.TabIndex = 3;
             this.tabPageEmplacement.Text = "Emplacements";
             this.tabPageEmplacement.UseVisualStyleBackColor = true;
+            this.tabPageEmplacement.Enter += new System.EventHandler(this.tabPageEmplacement_Enter);
             // 
             // dataGridViewEmplacements
             // 
@@ -165,6 +179,7 @@
             this.tabPageEmprunt.TabIndex = 4;
             this.tabPageEmprunt.Text = "Emprunts";
             this.tabPageEmprunt.UseVisualStyleBackColor = true;
+            this.tabPageEmprunt.Enter += new System.EventHandler(this.tabPageEmprunt_Enter);
             // 
             // dataGridViewEmprunts
             // 
@@ -184,6 +199,7 @@
             this.tabPageGenre.TabIndex = 5;
             this.tabPageGenre.Text = "Genres";
             this.tabPageGenre.UseVisualStyleBackColor = true;
+            this.tabPageGenre.Enter += new System.EventHandler(this.tabPageGenre_Enter);
             // 
             // dataGridViewGenres
             // 
@@ -203,6 +219,7 @@
             this.tabPageLivre.TabIndex = 6;
             this.tabPageLivre.Text = "Livres";
             this.tabPageLivre.UseVisualStyleBackColor = true;
+            this.tabPageLivre.Enter += new System.EventHandler(this.tabPageLivre_Enter);
             // 
             // dataGridViewLivres
             // 
@@ -211,16 +228,6 @@
             this.dataGridViewLivres.Name = "dataGridViewLivres";
             this.dataGridViewLivres.Size = new System.Drawing.Size(750, 313);
             this.dataGridViewLivres.TabIndex = 1;
-            // 
-            // buttonAjouterAdherent
-            // 
-            this.buttonAjouterAdherent.Location = new System.Drawing.Point(548, 338);
-            this.buttonAjouterAdherent.Name = "buttonAjouterAdherent";
-            this.buttonAjouterAdherent.Size = new System.Drawing.Size(75, 23);
-            this.buttonAjouterAdherent.TabIndex = 1;
-            this.buttonAjouterAdherent.Text = "Ajouter";
-            this.buttonAjouterAdherent.UseVisualStyleBackColor = true;
-            this.buttonAjouterAdherent.Click += new System.EventHandler(this.buttonAjouterAdherent_Click);
             // 
             // FormMain
             // 
